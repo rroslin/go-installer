@@ -37,5 +37,5 @@ To remove Go, you can run the uninstall.sh script:
     Examples: `~/.bashrc`, `~/.bash_profile`, or `~/.zshrc`
     ```bash
     # Specify bash source file to add Go environment variables
-    STARTUP_FILE=<YOUR_STARTUP_FILE>
+    BASH_SOURCE=<YOUR_STARTUP_FILE>
     ```

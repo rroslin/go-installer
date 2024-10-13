@@ -41,16 +41,16 @@ sudo tar -C /usr/local -xzf /tmp/$(basename $GO_TAR_URL)
 mkdir -p $HOME/go/{bin,src,pkg}
 
 # Specify bash source file to add Go environment variables
-STARTUP_FILE=$HOME/.bashrc
+BASH_SOURCE=$HOME/.bashrc
 
 # Add Go environment variables to .bashrc
-echo -e "\n# Load Go environment variables" >> $STARTUP_FILE
-echo -e "export GOPATH=\$HOME/go" >> $STARTUP_FILE
-echo -e "export GOBIN=\$HOME/go/bin" >> $STARTUP_FILE
-echo -e "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" >> $STARTUP_FILE
+echo -e "\n# Load Go environment variables" >> $BASH_SOURCE
+echo -e "export GOPATH=\$HOME/go" >> $BASH_SOURCE
+echo -e "export GOBIN=\$HOME/go/bin" >> $BASH_SOURCE
+echo -e "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" >> $BASH_SOURCE
 
 # source startup file to apply changes
-source $STARTUP_FILE
+source $BASH_SOURCE
 
 # Print success if Go is installed
 if command -v go &> /dev/null
