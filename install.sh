@@ -40,14 +40,17 @@ sudo tar -C /usr/local -xzf /tmp/$(basename $GO_TAR_URL)
 # Create a new directories for Go workspace
 mkdir -p $HOME/go/{bin,src,pkg}
 
-# Add Go environment variables to .bashrc
-echo -e "\n# Load Go environment variables" >> $HOME/.bashrc
-echo -e "export GOPATH=\$HOME/go" >> $HOME/.bashrc
-echo -e "export GOBIN=\$HOME/go/bin" >> $HOME/.bashrc
-echo -e "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" >> $HOME/.bashrc
+# Specify bash source file to add Go environment variables
+STARTUP_FILE=$HOME/.bashrc
 
-# source .bashrc to apply changes
-source $HOME/.bashrc
+# Add Go environment variables to .bashrc
+echo -e "\n# Load Go environment variables" >> $STARTUP_FILE
+echo -e "export GOPATH=\$HOME/go" >> $STARTUP_FILE
+echo -e "export GOBIN=\$HOME/go/bin" >> $STARTUP_FILE
+echo -e "export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" >> $STARTUP_FILE
+
+# source startup file to apply changes
+source $STARTUP_FILE
 
 # Print success if Go is installed
 if command -v go &> /dev/null
