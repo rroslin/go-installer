@@ -16,7 +16,7 @@ To install Go using the `install.sh` script, follow these steps:
     git clone <repository-url>
     cd <repository-directory>
     ```
-2. [OPTIONAL] set `GO_TAR_URL` if you want to install a specific version. If NOT set it will install the latest version.
+2. [OPTIONAL] Set `GO_TAR_URL` if you want to install a specific version. If NOT set it will install the latest version.
     ```bash
     export GO_TAR_URL=<SPECIFIC_GO_RELEASE_TAR>
     ```
